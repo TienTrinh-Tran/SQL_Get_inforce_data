@@ -1,15 +1,15 @@
 # SQL & Python scripts to generate files needed to do Premium Impact
 
-When actuaries make rate changes for a state, there is a need to check if the overall rate increase/decrease of entire in-force policies in the book matches their calculated filed % change to the Department of Insurance. Our team gets the in-force data from SQL server and output them into an Excel workbook. We then use a separate VBA program to connect this data to our state Excel rater to calculate the current and proposed premium for these policies and calculate the various changes for quality control. 
+When actuaries make rate changes for a state, there is a need to verify if the overall rate increase or decrease of all in-force policies in the book aligns with the calculated filed percentage change submitted to the Department of Insurance. Our team retrieves the in-force data from the SQL server and exports it to an Excel workbook. Subsequently, we utilize a separate VBA program to link this data to our state Excel rater. This allows us to calculate the current and proposed premiums for these policies and assess various changes for quality control purposes. 
 
-In the past, due to the variations from states to states, we had multiple SQL scripts to generate the data we need and used Excel to combine the data together. This was time consuming and very error-proned. I wrote a set of dynamic SQL scripts that works for all the states and combine with a Python script to further transform data into the final Excel format that can work well with our Excel raters. 
+In the past, we encountered variations from state to state, which required us to use multiple SQL scripts to generate the necessary data. We then had to manually combine the data using Excel, which was a time-consuming process and prone to errors. To address these challenges, I developed a set of dynamic SQL scripts capable of handling all states. Additionally, I integrated a Python script to further transform the data into the final Excel format that seamlessly integrates with our Excel raters. This automation significantly streamlines the process, reduces errors, and enhances efficiency.
 
-In addition, Actuarial team also has their own rating engine on SQL server (we call SQL-rerater) to do the same premium calculation in addition to other complex methods they use when making rate changes. This rating engine is quite complex and has so many steps thus caused incorrect factors applied occassionally. Sometimes when we don't match the overall rate change filed by actuaries, we compare the factors applied in this SQL-rerater to the factors applied in our Excel rater. To make comparison faster, I write another SQL script to retrieve factors from actuarial sql results for requested policies to Excel workbook. Our team member can copy & paste the factors generated from our Excel rater on the side columns. Using conditional formatting, the unmatched factors will be immediatly visible to us. 
+In addition, our Actuarial team utilizes their own rating engine called SQL-rerater on the SQL server. This rating engine performs premium calculations and incorporates various complex methods when making rate changes. However, due to the intricacy of the rating engine and the numerous steps involved, occasional errors can occur, resulting in incorrect factors being applied.
+In cases where we don't match the overall rate change filed by the actuaries, we compare the factors applied in the SQL-rerater to the factors applied in our Excel rater. To expedite this comparison process, I have developed another Python script that retrieves the factors from the actuarial SQL results and outputs them to an Excel workbook. Our team members can then copy and paste the factors generated from our Excel rater into the side columns of the workbook. By utilizing conditional formatting, any unmatched factors will be immediately visible to us.
+This approach allows for a faster and more efficient comparison of factors between the SQL-rerater and our Excel rater. By quickly identifying any discrepancies through visual cues, our team can address and resolve issues effectively.
 
-1 - Files to generate in-force data:
-    -
-    -
-    -
-    -
+1 - Scripts to generate in-force data:
+    - 3 SQL scripts
+    - GW_Inforce_Auto_Situations_GW.py
 2 - Script to do factor comparison
     - GW_SQL-Rater_Factors_Comparison.py
