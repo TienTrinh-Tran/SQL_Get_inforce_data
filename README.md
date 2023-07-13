@@ -9,7 +9,11 @@ In cases where we don't match the overall rate change filed by the actuaries, we
 This approach allows for a faster and more efficient comparison of factors between the SQL-rerater and our Excel rater. By quickly identifying any discrepancies through visual cues, our team can address and resolve issues effectively.
 
 1 - Scripts to generate in-force data:
+
     - 3 SQL scripts
+    
     - GW_Inforce_Auto_Situations_GW.py
+    
 2 - Script to do factor comparison
+
     - GW_SQL-Rater_Factors_Comparison.py
